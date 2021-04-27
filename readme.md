@@ -42,6 +42,8 @@ docker push armandojrn/laravel-optmized:tagname
   BODY: Multipart Form NAME: 'upload' VALUE: File
 
   HEADER: Content-Type: multipart/form-data
+  
+![image](https://user-images.githubusercontent.com/28222443/116198139-fd3c5300-a70b-11eb-99d0-f1d3cd08f13f.png)
 
 <h3>ENDPOINT(consultar arquivos enviados):</h3>
   GET: localhost:8000/api/files
@@ -49,6 +51,9 @@ docker push armandojrn/laravel-optmized:tagname
   BODY: no body
 
   HEADER: no header
+  
+  ![image](https://user-images.githubusercontent.com/28222443/116198350-3a084a00-a70c-11eb-9b8f-39ee84ff8f79.png)
+
 
 <h3>ENDPOINT(consultar registros higienizados):</h3>
   GET: localhost:8000/api/registries
@@ -56,6 +61,8 @@ docker push armandojrn/laravel-optmized:tagname
   BODY: no body
 
   HEADER: no header
+  
+  ![image](https://user-images.githubusercontent.com/28222443/116198282-2361f300-a70c-11eb-8b78-9397f96f8ff6.png)
 
 <h3>BANCO</h3>
 - a documentação da criação do banco está do diretório /data/SQL
