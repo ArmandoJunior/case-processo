@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\API;
 
 use App\Models\File;
-use App\Models\Registry;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -16,44 +15,19 @@ class DataServiceController extends Controller
 
     /**
      * @param Request $request
-     * @return \Symfony\Component\HttpFoundation\File\File
+     * @return \Illuminate\Http\JsonResponse
      */
     public function store(Request $request)
     {
-        return $request->file('upload')->move(public_path('/upload'), $request->file('upload')->getClientOriginalName());
-    }
+        if (!$request->file('upload')) return response()->json([
+            'status' => 'File not found.'
+        ], 400);
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Registry  $data
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Registry $data)
-    {
-        //
-    }
+        $result = $request->file('upload')->move(public_path('/upload'), $request->file('upload')->getClientOriginalName());
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Registry  $data
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Registry $data)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Registry  $data
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Registry $data)
-    {
-        //
+        return response()->json([
+            'status' => 'Success.',
+            'File Received' => $result->getFilename(),
+        ], 200);
     }
 }

@@ -18,3 +18,4 @@ yarn-error.log
 /.env.testing
 /.idea/*
 /.idea
+/public/upload/

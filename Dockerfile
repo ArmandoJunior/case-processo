@@ -31,7 +31,7 @@ RUN ln -s public html
 #CMD cron && tail -f /var/log/cron.log
 #CMD /usr/local/startup.sh && crond -f -l 8
 
-#CMD ['/usr/local/startup.sh', 'crond', '-l 8', '-f']
+#CMD ['crond', '-l 8', '-f']
 #CMD [ "/usr/sbin/crond", "-f", "-d8" ]
 
 EXPOSE 9000
