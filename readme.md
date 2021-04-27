@@ -22,11 +22,14 @@ docker push armandojrn/laravel-optmized:tagname
   
 
 - Executar os comandos:
+
+  <strong>docker-compose logs -f</strong> (executar e aguardar finalizar a construção dos containers e a instalação do sistema antes de seguir para o próximo comando)  
   
-  <strong>docker-composer up -d</strong> 
-        
-      (para usar os endpoints, a primeira vez que executar o comando à cima é necessário aguardar para que todos os containers sejam criados, o framework seja instalado e atualizado e as migrations do banco sejam executadas)
-  
+  <strong>docker-composer up -d</strong>
+
+  (para usar os endpoints, a primeira vez que executar o comando à cima é necessário aguardar para que todos os containers sejam criados, o framework seja instalado, atualizado e as migrations do banco sejam executadas)
+
+
   <strong>docker exec -it app bash</strong>
   
   <strong>crond -f -l 8</strong>
