@@ -6,6 +6,8 @@ use Illuminate\Http\Resources\Json\ResourceCollection;
 
 class RegistriesCollection extends ResourceCollection
 {
+//    public $collects = 'App\Http\Resources\Registry';
+
     /**
      * Transform the resource collection into an array.
      *
