@@ -24,20 +24,15 @@ COPY /data/php/php.ini /usr/local/etc/php
 #COPY . /var/www
 RUN ln -s public html
 
-RUN apk update && apk add tzdata &&\
-    cp /usr/share/zoneinfo/America/Sao_Paulo /etc/localtime &&\
-    echo "America/Sao_Paulo" > /etc/timezone &&\
-    apk del tzdata && rm -rf /var/cache/apk/*
-
 ## Copy mycron file to the cron.d directory
-COPY data/cron/startup.sh /usr/local/startup.sh
+#COPY data/cron/startup.sh /usr/local/startup.sh
 
 # Run the command on container startup
-CMD cron && tail -f /var/log/cron.log
-CMD /usr/local/startup.sh && crond -f -l 8
+#CMD cron && tail -f /var/log/cron.log
+#CMD /usr/local/startup.sh && crond -f -l 8
 
 #CMD ['/usr/local/startup.sh', 'crond', '-l 8', '-f']
-CMD [ "/usr/sbin/crond", "-f", "-d8" ]
+#CMD [ "/usr/sbin/crond", "-f", "-d8" ]
 
 EXPOSE 9000
 ENTRYPOINT ["php-fpm"]
