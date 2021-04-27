@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\API;
 
+use App\Models\File;
 use App\Models\Registry;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -10,7 +11,7 @@ class DataServiceController extends Controller
 {
     public function index()
     {
-        return Registry::query()->first();
+        return File::all();
     }
 
     /**
