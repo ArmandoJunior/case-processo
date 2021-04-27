@@ -65,7 +65,7 @@ docker push armandojrn/laravel-optmized:tagname
 <h3>Meus maiores desafios</h3>
 - os maiores desafios que eu encontrei foram em relação à configuração de ambiente, visto que eu não trabalho com essas configurações no meu dia a dia e acabou por tomar-me a maior parte do tempo de criação do projeto.
   
-- em relação ao banco, também foi uma novidade já que eu trabalho atualmente com SQL Server e MySQL, porém não fez muita diferença.
+- em relação ao banco, também foi uma novidade já que eu trabalho atualmente com SQL Server e MySQL, algumas questões de configurações criaram um certo desafio.
   
 - escolher a forma de persistir e higienizar um arquivo de 50 mil linhas também foi um desafio já que não é algo muito comum no meu dia a dia, não sei se a utilização de CRON para realizar foi a mais acertada, mas no momento pareceu-me a mais adequada para não travar em requisições demoradas.
   
