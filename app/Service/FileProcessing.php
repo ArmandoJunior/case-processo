@@ -48,16 +48,21 @@ class FileProcessing
     {
         $file = $this->checkIfFileExists();
         $lines = (new ReadFile($pathName))->readFileGenerator();
+        $registries = [];
 
         foreach ($lines as $key => $line) {
             if ($key == 0) continue;
             $line = $this->sanitizer->removeDoublesSpaces($line);
             $array = $this->sanitizer->turnToArray($line);
             $arrayCleaned = $this->sanitizer->serialize($array);
-            $registry = Registry::query()->create($arrayCleaned);
-            $registry->refresh();
+            $registries[] = $arrayCleaned;
+            if (count($registries) === 5000) {
+                Registry::insert($registries);
+                unset($registries);
+            }
         }
 
+        Registry::insert($registries);
         $file->update(['status' => File::FINISHED]);
     }
 

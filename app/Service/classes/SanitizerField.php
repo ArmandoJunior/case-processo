@@ -38,7 +38,9 @@ class SanitizerField
             'usual_store' => $usualStore,
             'usual_store_invalid' => $this->checkCNPJ($usualStore),
             'last_store' => $lastStore,
-            'last_store_invalid' => $this->checkCNPJ($lastStore)
+            'last_store_invalid' => $this->checkCNPJ($lastStore),
+            'created_at' => now()->toDayDateTimeString(),
+            'updated_at' => now()->toDayDateTimeString(),
         ];
     }
 
@@ -92,7 +94,6 @@ class SanitizerField
     function checkCNPJ(?string $cnpj): bool
     {
         if (strlen($cnpj) != 14) return true;
-
         if (preg_match('/(\d)\1{13}/', $cnpj)) return true;
 
         for ($digits = 12; $digits < 14; $digits++) {

@@ -24,15 +24,5 @@ COPY /data/php/php.ini /usr/local/etc/php
 #COPY . /var/www
 RUN ln -s public html
 
-## Copy mycron file to the cron.d directory
-#COPY data/cron/startup.sh /usr/local/startup.sh
-
-# Run the command on container startup
-#CMD cron && tail -f /var/log/cron.log
-#CMD /usr/local/startup.sh && crond -f -l 8
-
-#CMD ['crond', '-l 8', '-f']
-#CMD [ "/usr/sbin/crond", "-f", "-d8" ]
-
 EXPOSE 9000
 ENTRYPOINT ["php-fpm"]
